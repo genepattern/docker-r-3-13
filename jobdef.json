@@ -21,10 +21,13 @@
             {
                 "name": "EXITCODE_FILENAME",
                 "value": "./.gp_metadata/exit_code.txt"
-
+            },
+            {   
+                "name": "GP_METADATA_DIR",
+                "value": "./.gp_metadata/"
             }
         ],
-        "image": "liefeld/r313_cli",
+        "image": "genepattern/docker-R313",
         "memory": 2000,
         "mountPoints": [],
         "ulimits": [],
