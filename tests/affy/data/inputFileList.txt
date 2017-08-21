@@ -1,0 +1,1 @@
+/Users/liefeld/GenePattern/gp_dev/docker/docker-R313/tests/affy/data/HuEx-1_0-st-v2-colon-cancer-small.zip 
