@@ -1,5 +1,10 @@
 #!/bin/sh
 
+cd data
+#ftp ftp://gpftp.broadinstitute.org/gpunit/AffySTExpressionFileCreator/v1/input/HuEx-1_0-st-v2/HuEx-1_0-st-v2-colon-cancer-small.zip
+cd ..
+
+
 TEST_ROOT=$PWD
 TASKLIB=$TEST_ROOT/src
 INPUT_FILE_DIRECTORIES=$TEST_ROOT/data
@@ -31,5 +36,10 @@ chmod a+x $EXEC_SHELL
 REMOTE_COMMAND="runLocal.sh $TASKLIB $INPUT_FILE_DIRECTORIES $S3_ROOT $WORKING_DIR $EXEC_SHELL"
 
 echo "Container will execute $REMOTE_COMMAND  <EOM>\n"
-docker run -m 5g -v $RLIB:/usr/local/lib/R/site-library -v $TASKLIB:$TASKLIB -v $INPUT_FILE_DIRECTORIES:$INPUT_FILE_DIRECTORIES -v $WORKING_DIR:$WORKING_DIR  liefeld/r313_cli $REMOTE_COMMAND
+docker run -m 5g -v $RLIB:/usr/local/lib/R/site-library -v $TASKLIB:$TASKLIB -v $INPUT_FILE_DIRECTORIES:$INPUT_FILE_DIRECTORIES -v $WORKING_DIR:$WORKING_DIR  genepattern/docker-r-3-13 $REMOTE_COMMAND
+
+
+#docker run -it -m 5g -v $RLIB:/usr/local/lib/R/site-library -v $TASKLIB:$TASKLIB -v $INPUT_FILE_DIRECTORIES:$INPUT_FILE_DIRECTORIES -v $WORKING_DIR:$WORKING_DIR  genepattern/docker-r-3-13 bash
+
+#rm data/HuEx-1_0-st-v2-colon-cancer-small.zip
 

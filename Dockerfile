@@ -1,8 +1,6 @@
 FROM r-base:3.1.3
 
-COPY runS3OnBatchInstallPackages.sh /usr/local/bin/runS3OnBatch.sh
 RUN mkdir /build
-COPY installPackages.R  /build/source/installPackages.R
 COPY sources.list /etc/apt/sources.list
 
 RUN apt-get update && apt-get upgrade --yes && \
@@ -17,16 +15,23 @@ RUN pip install awscli
 RUN apt-get update && \
     apt-get install curl --yes
     
-RUN chmod ugo+x /usr/local/bin/runS3OnBatch.sh
-
 RUN apt-get install libxml2-dev --yes && \
     apt-get install libcurl4-gnutls-dev --yes && \
     apt-get install mesa-common-dev --yes && \
     apt-get install --yes libglu1-mesa-dev freeglut3-dev  bwidget
 
+COPY runS3OnBatchInstallPackages.sh /usr/local/bin/runS3OnBatch.sh
+COPY installPackages.R  /build/source/installPackages.R
 COPY runLocalInstallPackages.sh /usr/local/bin/runLocal.sh
 COPY Rprofile.gp.site ~/.Rprofile
 COPY Rprofile.gp.site /usr/lib/R/etc/Rprofile.site
+RUN chmod ugo+x /usr/local/bin/runS3OnBatch.sh
+
+COPY Dockerfile /build/Dockerfile
+
+ENV R_LIBS_S3=/genepattern-server/Rlibraries/R313/rlibs
+ENV R_LIBS=/usr/local/lib/R/site-library
+ENV R_HOME=/usr/local/lib64/R
  
 CMD ["/usr/local/bin/runS3OnBatch.sh" ]
 
