@@ -20,9 +20,9 @@ RUN apt-get install libxml2-dev --yes && \
     apt-get install mesa-common-dev --yes && \
     apt-get install --yes libglu1-mesa-dev freeglut3-dev  bwidget
 
-COPY runS3OnBatchInstallPackages.sh /usr/local/bin/runS3OnBatch.sh
-COPY installPackages.R  /build/source/installPackages.R
-COPY runLocalInstallPackages.sh /usr/local/bin/runLocal.sh
+COPY common/container_scripts/runS3OnBatch.sh /usr/local/bin/runS3OnBatch.sh
+COPY common/container_scripts/installPackages.R-2  /build/source/installPackages.R
+COPY common/container_scripts/runLocal.sh /usr/local/bin/runLocal.sh
 COPY Rprofile.gp.site ~/.Rprofile
 COPY Rprofile.gp.site /usr/lib/R/etc/Rprofile.site
 RUN chmod ugo+x /usr/local/bin/runS3OnBatch.sh
