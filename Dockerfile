@@ -32,6 +32,10 @@ COPY Dockerfile /build/Dockerfile
 ENV R_LIBS_S3=/genepattern-server/Rlibraries/R313/rlibs
 ENV R_LIBS=/usr/local/lib/R/site-library
 ENV R_HOME=/usr/local/lib64/R
+
+COPY runS3Batch_prerun_custom.sh /usr/local/bin/runS3Batch_prerun_custom.sh
+COPY runS3Batch_postrun_custom.sh /usr/local/bin/runS3Batch_postrun_custom.sh
+
  
 CMD ["/usr/local/bin/runS3OnBatch.sh" ]
 

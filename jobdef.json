@@ -27,7 +27,7 @@
                 "value": "./.gp_metadata/"
             }
         ],
-        "image": "genepattern/docker-R313",
+        "image": "genepattern/docker-r-3-13",
         "memory": 2000,
         "mountPoints": [],
         "ulimits": [],
