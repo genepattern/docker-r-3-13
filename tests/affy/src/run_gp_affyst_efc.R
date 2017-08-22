@@ -8,6 +8,8 @@
 ## whatsoever. Neither the Broad Institute nor MIT can be responsible for its
 ## use, misuse, or functionality.
 
+sink(stdout(), type="message") 
+
 suppressMessages(suppressWarnings(library(getopt)))
 suppressMessages(suppressWarnings(library(optparse)))
 suppressMessages(suppressWarnings(library(R.methodsS3)))
