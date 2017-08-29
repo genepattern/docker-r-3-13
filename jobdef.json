@@ -31,7 +31,7 @@
         "memory": 2000,
         "mountPoints": [],
         "ulimits": [],
-        "vcpus": 2,
+        "vcpus": 1,
         "volumes": []
     },
     "jobDefinitionName": "R313_Generic",
