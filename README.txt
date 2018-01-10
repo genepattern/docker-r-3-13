@@ -43,4 +43,4 @@ Also we'll need to adjust the runOnBatchAndS3.sh files in all the test directori
 
 
 
-
+# copyright 2017-2018 Regents of the University of California and the Broad Institute. All rights reserved.
